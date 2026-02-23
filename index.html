@@ -1,0 +1,123 @@
+<!doctype html>
+<!--[if lt IE 9]><html class="ie8 ie"><![endif]-->
+<!--[if IE 9]><html class="ie9 ie"><![endif]-->
+<!--[if gt IE 9]><html class="ie"> <![endif]-->
+<!--[if !IE]><!-->
+<html><!--<![endif]-->
+
+<head>
+	<meta charset="utf-8" />
+	<title>Poppy Field - Visualising pandemics Fatalities</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" type="text/css" href="css/style.css?v=3">
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<div class="wrapper-inside">
+
+			<div class="intro">
+				<div class="block block-intro">
+					<svg class="bg-inside"></svg>
+					<h2 class="title">A timeline of epidemics and pandemic</h2>
+				</div>
+
+				<div class="block block-explore">
+					<h3 class="text">
+						<p>
+							From time to time, humanity suffered through large pandemics.
+							This interactive visualisation shows the estimated fatalities from different epidemics and
+							pandemics in history since 1900.
+						</p>
+					</h3>
+				</div>
+			</div>
+
+			<div class="block block-graph">
+
+				<div class="bg-graph"></div>
+
+				<svg id="graph" viewBox="0 0 1280 750" preserveAspectRatio="xMidYMid">
+					<defs>
+						<!-- Filters can go here if needed -->
+					</defs>
+				</svg>
+
+				<div class="block-filter-top">
+					<div class="block-filter-regions">
+						<h4>Filter by Cause</h4>
+						<a class="btn btn-filter active" data-region="Bacterial" href="#"
+							style="background-color:#d359a2ff;">
+							<span class="filter-text">Bacterial</span>
+						</a>
+						<a class="btn btn-filter active" data-region="Viral" href="#"
+							style="background-color:#9bc931ff;">
+							<span class="filter-text">Viral</span>
+						</a>
+						<a class="btn btn-filter active" data-region="Parasitic" href="#"
+							style="background-color:#e4b63f;">
+							<span class="filter-text">Parasitic</span>
+						</a>
+						<a class="btn btn-filter active" data-region="Fungal" href="#"
+							style="background-color:#c5342c;">
+							<span class="filter-text">Fungal</span>
+						</a>
+						<a class="btn btn-filter active" data-region="Prion" href="#"
+							style="background-color:#672a9dff;">
+							<span class="filter-text">Prion</span>
+						</a>
+						<a class="btn btn-filter active" data-region="Unknown" href="#"
+							style="background-color:#E07818;">
+							<span class="filter-text">Unknown</span>
+						</a>
+					</div>
+				</div>
+
+				<div class="graph-overlay" style="display:none;">
+
+					<div class="block-graph-overlay">
+
+						<!-- Close button removed due to hover interaction -->
+
+						<div class="graph-overlay-content">
+
+							<table>
+								<tbody>
+									<tr class="name">
+										<td class="title">Epidemic/ Pandemic</td>
+										<td class="content"></td>
+									</tr>
+									<tr class="duration">
+										<td class="title">Duration</td>
+										<td class="content"></td>
+									</tr>
+									<tr class="fatalities">
+										<td class="title">Fatalities</td>
+										<td class="content"></td>
+									</tr>
+								</tbody>
+							</table>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- LIBS -->
+	<!-- Using CDN for simplicity -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+
+	<!-- COMPILED SCRIPT -->
+	<script type="text/javascript" src="js/PS.js"></script>
+
+</body>
+
+</html>

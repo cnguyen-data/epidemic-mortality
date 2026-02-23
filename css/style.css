@@ -1,0 +1,144 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to top right, #fcf1ea 0%, #dff1f3 100%);
+    color: #333;
+}
+
+#wrapper {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.intro {
+    padding: 20px;
+    text-align: center;
+}
+
+.title {
+    font-size: 3em;
+    margin-bottom: 5px;
+}
+
+.date {
+    font-size: 1.5em;
+    color: #666;
+}
+
+.block-graph {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    position: relative;
+    height: 800px;
+    /* Base height */
+}
+
+#graph {
+    width: 100%;
+    height: 100%;
+}
+
+.block-filter-top {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.btn-filter {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    margin: 2px;
+    border-radius: 4px;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+}
+
+.btn-filter.active {
+    opacity: 1;
+}
+
+/* Tooltip / Overlay */
+.graph-overlay {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    min-width: 250px;
+}
+
+.btn-close {
+    float: right;
+    color: #999;
+    text-decoration: none;
+}
+
+.dot {
+    stroke: none;
+    cursor: pointer;
+    transition: r 0.1s;
+}
+
+.dot:hover {
+    stroke: black;
+    stroke-width: 2px;
+}
+
+.stem {
+    fill: none;
+    stroke: #999;
+    stroke-width: 1.5px;
+    opacity: 0.6;
+}
+
+.tick line {
+    stroke: lightgray;
+    stroke-dasharray: 2, 2;
+}
+
+.tick text {
+    font-size: 12px;
+    fill: #666;
+}
+
+.domain {
+    fill: none;
+    stroke: #ccc;
+}
+
+/* Fix for overlay table huge text due to .title class collision */
+.graph-overlay-content table {
+    width: 100%;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.graph-overlay-content td {
+    padding: 8px 10px 8px 0;
+    vertical-align: top;
+}
+
+.graph-overlay-content .title {
+    font-size: 1.2em;
+    font-weight: normal;
+    color: #333;
+    margin-bottom: 0;
+}
+
+.graph-overlay-content .content {
+    font-size: 1em;
+    color: #666;
+    padding-top: 4px;
+    /* align text carefully */
+}
