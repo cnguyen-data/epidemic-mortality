@@ -1,0 +1,169 @@
+<!doctype html>
+<!--[if lt IE 9]><html class="ie8 ie"><![endif]-->
+<!--[if IE 9]><html class="ie9 ie"><![endif]-->
+<!--[if gt IE 9]><html class="ie"> <![endif]-->
+<!--[if !IE]><!-->
+<html><!--<![endif]-->
+
+<head>
+	<meta charset="utf-8" />
+	<title>Poppy Field - Visualising pandemics Fatalities</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" type="text/css" href="css/style.css?v=3">
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<div class="wrapper-inside">
+
+			<div class="intro"
+				style="position: absolute; top: 20px; left: 20px; z-index: 10; pointer-events: none; max-width: 900px; text-align: left;">
+				<h1 class="title" style="font-size: 2.3em; text-transform: uppercase;">A timeline of epidemics and
+					pandemics</h1>
+				<p style="font-size: 1.6em; color: #555;">
+					Each poppy in the diagram depicts an epidemic of the last century. The stem grows from the year when
+					the epidemic started. The poppy flowers in the year the epidemic ended. Its size shows the number of
+					deaths.
+				</p>
+			</div>
+
+			<div style="position: absolute; top: 20px; right: 350px; z-index: 10;">
+				<a href="index_vn.html" class="btn"
+					style="background: white; padding: 5px 10px; text-decoration: none; color: #333; border: 1px solid #ccc;">Tiếng
+					Việt</a>
+			</div>
+
+			<div class="block block-graph" style="height: 100vh;">
+
+				<div class="bg-graph"></div>
+
+				<svg id="graph" viewBox="0 0 1280 750" preserveAspectRatio="xMidYMid">
+					<defs>
+						<!-- Filters can go here if needed -->
+					</defs>
+				</svg>
+
+				<div class="block-filter-top"
+					style="bottom: 10px; right: 10px; top: auto; width: 320px; transform: scale(0.8); transform-origin: bottom right;">
+					<div class="block-filter-regions">
+						<h4>Filter by Cause</h4>
+						<div style="display: flex; flex-wrap: wrap; gap: 4px;">
+							<div style="flex: 1 1 100%; display: flex; gap: 4px;">
+								<a class="btn btn-filter active" data-filter-group="cause" data-value="Bacterial"
+									href="#"
+									style="background-color:#d359a2ff; flex: 1; font-size: 11px; padding: 4px;">
+									<span class="filter-text">Bacterial</span>
+								</a>
+								<a class="btn btn-filter active" data-filter-group="cause" data-value="Viral" href="#"
+									style="background-color:#9bc931ff; flex: 1; font-size: 11px; padding: 4px;">
+									<span class="filter-text">Viral</span>
+								</a>
+								<a class="btn btn-filter active" data-filter-group="cause" data-value="Parasitic"
+									href="#" style="background-color:#e4b63f; flex: 1; font-size: 11px; padding: 4px;">
+									<span class="filter-text">Parasitic</span>
+								</a>
+							</div>
+							<div style="flex: 1 1 100%; display: flex; gap: 4px;">
+								<a class="btn btn-filter active" data-filter-group="cause" data-value="Fungal" href="#"
+									style="background-color:#c5342c; flex: 1; font-size: 11px; padding: 4px;">
+									<span class="filter-text">Fungal</span>
+								</a>
+								<a class="btn btn-filter active" data-filter-group="cause" data-value="Prion" href="#"
+									style="background-color:#672a9dff; flex: 1; font-size: 11px; padding: 4px;">
+									<span class="filter-text">Prion</span>
+								</a>
+								<a class="btn btn-filter active" data-filter-group="cause" data-value="Unknown" href="#"
+									style="background-color:#E07818; flex: 1; font-size: 11px; padding: 4px;">
+									<span class="filter-text">Unknown</span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="block-filter-type" style="margin-top: 10px;">
+						<h4>Filter by Continent</h4>
+						<div style="display: flex; flex-wrap: wrap; gap: 4px;">
+							<div style="flex: 1 1 100%; display: flex; gap: 4px;">
+								<a class="btn btn-filter active" data-filter-group="continent" data-value="Africa"
+									href="#"
+									style="background-color:#c7c4c4; flex: 1; font-size: 10px; padding: 4px;">Africa</a>
+								<a class="btn btn-filter active" data-filter-group="continent" data-value="Asia"
+									href="#"
+									style="background-color:#c7c4c4; flex: 1; font-size: 10px; padding: 4px;">Asia</a>
+								<a class="btn btn-filter active" data-filter-group="continent" data-value="Europe"
+									href="#"
+									style="background-color:#c7c4c4; flex: 1; font-size: 10px; padding: 4px;">Europe</a>
+							</div>
+							<div style="flex: 1 1 100%; display: flex; gap: 4px; margin-top: 4px;">
+								<a class="btn btn-filter active" data-filter-group="continent"
+									data-value="North America" href="#"
+									style="background-color:#c7c4c4; flex: 1; font-size: 10px; padding: 4px;">N.America</a>
+								<a class="btn btn-filter active" data-filter-group="continent"
+									data-value="South America" href="#"
+									style="background-color:#c7c4c4; flex: 1; font-size: 10px; padding: 4px;">S.America</a>
+								<a class="btn btn-filter active" data-filter-group="continent" data-value="Worldwide"
+									href="#"
+									style="background-color:#c7c4c4; flex: 1; font-size: 10px; padding: 4px;">Global</a>
+							</div>
+						</div>
+					</div>
+					<div class="block-filter-type" style="margin-top: 10px;">
+						<h4>Filter by Type</h4>
+						<div style="display: flex; gap: 4px;">
+							<a class="btn btn-filter active" data-filter-group="type" data-value="Pandemic" href="#"
+								style="background-color:#ff0000; flex: 1; font-size: 11px; padding: 4px;">
+								<span class="filter-text">Pandemic</span>
+							</a>
+							<a class="btn btn-filter active" data-filter-group="type" data-value="Epidemic" href="#"
+								style="background-color:#888; flex: 1; font-size: 11px; padding: 4px;">
+								<span class="filter-text">Epidemic</span>
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="graph-overlay" style="display:none; pointer-events:none;">
+					<div class="graph-overlay-header">
+						<h3 class="name-title" style="margin: 0; font-size: 1.1em; font-weight: bold; color: white;">
+						</h3>
+					</div>
+					<div class="block-graph-overlay" style="padding: 10px;">
+						<div class="graph-overlay-content">
+							<table style="width: 100%; text-align: left; margin-top: 0;">
+								<tbody>
+									<tr class="duration">
+										<td class="title" style="color: #333; font-weight: bold;">Duration</td>
+										<td class="content" style="color: #666; padding-left: 10px;"></td>
+									</tr>
+									<tr class="fatalities">
+										<td class="title" style="color: #333; font-weight: bold;">Fatalities</td>
+										<td class="content" style="color: #666; padding-left: 10px;"></td>
+									</tr>
+									<tr class="cause-row">
+										<td class="title" style="color: #333; font-weight: bold;">Cause</td>
+										<td class="content" style="color: #666; padding-left: 10px;"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- LIBS -->
+	<!-- Using CDN for simplicity -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+
+	<!-- COMPILED SCRIPT -->
+	<script type="text/javascript" src="js/PS.js"></script>
+
+</body>
+
+</html>
